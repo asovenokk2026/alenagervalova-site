@@ -2,6 +2,17 @@
 layout: layouts/base.njk
 ---
 {%- set cat = categories | selectattr("slug", "equalto", category) | first -%}
+{%- set midCta -%}
+<aside class="post-inline-cta">
+    <p class="post-inline-cta-text">
+        <strong>Узнали себя?</strong> На консультации разберём именно вашу
+        ситуацию — что за этим стоит и что с этим делать.
+    </p>
+    <a href="#" class="post-inline-cta-link" onclick="openModal(); return false;">
+        Записаться на консультацию →
+    </a>
+</aside>
+{%- endset -%}
 <main class="blog-bg">
     <article class="post">
         <header class="post-head">
@@ -35,12 +46,11 @@ layout: layouts/base.njk
             width="1200"
             height="675"
             fetchpriority="high"
-           
         />
         {% endif %}
 
         <div class="post-body">
-{{ content | safe }}
+{{ content | injectCta(midCta) | safe }}
         </div>
 
         {% if updated %}<p class="post-updated">Последнее обновление: {{ updated | ruDate }}</p>{% endif %}
@@ -49,8 +59,23 @@ layout: layouts/base.njk
             <h2>Хотите разобрать свою ситуацию?</h2>
             <p>
                 Онлайн-консультация 50 минут в удобное время. Напишите мне
-                в любой мессенджер — согласуем время первой сессии.
+                в любой мессенджер — расскажете, что беспокоит, и я отвечу,
+                смогу ли помочь. Первое сообщение ни к чему не обязывает.
             </p>
+            <div class="post-cta-facts">
+                <span class="post-cta-fact">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><polyline points="12 7 12 12 15 14" /></svg>
+                    50 минут
+                </span>
+                <span class="post-cta-fact">
+                    <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                    от 2 500 ₽
+                </span>
+                <span class="post-cta-fact">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2" /><path d="M8 22h8M12 18v4" /></svg>
+                    Онлайн, из любого города
+                </span>
+            </div>
             <div class="post-cta-actions">
                 <a href="#" class="btn-primary" onclick="openModal(); return false;">
                     <svg viewBox="0 0 24 24">
@@ -61,6 +86,12 @@ layout: layouts/base.njk
                 <a href="{{ site.contacts.whatsapp }}" target="_blank" rel="noopener" class="btn-ghost">WhatsApp</a>
                 <a href="{{ site.contacts.telegram }}" target="_blank" rel="noopener" class="btn-ghost">Telegram</a>
             </div>
+            {% if ctaReview %}
+            <figure class="post-cta-review">
+                <blockquote>{{ ctaReview }}</blockquote>
+                {% if ctaReviewAuthor %}<figcaption>{{ ctaReviewAuthor }}</figcaption>{% endif %}
+            </figure>
+            {% endif %}
         </aside>
 
         {% if faq and faq.length %}
@@ -76,6 +107,33 @@ layout: layouts/base.njk
             {% endfor %}
         </section>
         {% endif %}
+
+        <section class="post-author" aria-labelledby="author-title">
+            <img
+                src="/images/hero.webp"
+                alt="{{ site.author }} — психолог"
+                class="post-author-photo"
+                width="160"
+                height="160"
+                loading="lazy"
+            />
+            <div class="post-author-text">
+                <span class="post-author-label">Автор статьи</span>
+                <h2 id="author-title">{{ site.author }}</h2>
+                <p>
+                    Практикующий психолог, дипломы Московского института
+                    психоанализа и Московского института психологии. Работаю
+                    в методах когнитивно-поведенческой и эмоционально-образной
+                    терапии. Более 500 клиентов, консультации онлайн.
+                </p>
+                <div class="post-author-actions">
+                    <a href="#" class="btn-primary" onclick="openModal(); return false;">
+                        Записаться на консультацию
+                    </a>
+                    <a href="/#about" class="post-author-more">Подробнее обо мне →</a>
+                </div>
+            </div>
+        </section>
 
         <a href="/blog/" class="post-back">← Все статьи блога</a>
     </article>
@@ -99,3 +157,38 @@ layout: layouts/base.njk
     </div>
 </section>
 {% endif %}
+
+<div class="sticky-cta" id="stickyCta" hidden>
+    <div class="sticky-cta-text">
+        <strong>Онлайн-консультация</strong>
+        <span>50 минут · от 2 500 ₽</span>
+    </div>
+    <a href="#" class="sticky-cta-btn" onclick="openModal(); return false;">Записаться</a>
+</div>
+
+<script>
+(function () {
+    var bar = document.getElementById("stickyCta");
+    if (!bar) return;
+    var finalCta = document.getElementById("zapis");
+    var shown = false;
+
+    function update() {
+        var scrolled = window.scrollY > 400;
+        var atFinal = false;
+        if (finalCta) {
+            var r = finalCta.getBoundingClientRect();
+            atFinal = r.top < window.innerHeight && r.bottom > 0;
+        }
+        var need = scrolled && !atFinal;
+        if (need !== shown) {
+            shown = need;
+            bar.hidden = !need;
+        }
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+})();
+</script>
