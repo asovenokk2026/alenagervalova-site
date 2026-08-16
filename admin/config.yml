@@ -36,9 +36,8 @@ local_backend: false
 # и только по кнопке «Publish» попадает на сайт.
 publish_mode: editorial_workflow
 
-# После переезда домена заменить оба адреса на https://alenagervalova.ru
-site_url: https://gleeful-beignet-a5b21f.netlify.app
-display_url: https://gleeful-beignet-a5b21f.netlify.app
+site_url: https://alenagervalova.ru
+display_url: https://alenagervalova.ru
 logo_url: /favicon-192.png
 locale: ru
 
