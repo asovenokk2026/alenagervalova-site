@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.categoriesWithPosts
+  size: 1
+  alias: cat
+permalink: "/blog/kategoriya/{{ cat.slug }}/"
+isBlog: true
+includeBlogCss: true
+eleventyComputed:
+  title: "{{ cat.name }} — статьи психолога Алены Герваловой"
+  seoTitle: "{{ cat.name }}: статьи психолога — блог Алены Герваловой"
+  description: "Статьи психолога Алены Герваловой в рубрике «{{ cat.name }}»: практичные разборы, упражнения и ответы на частые вопросы."
+  canonical: "{{ page.url }}"
+  jsonld:
+    "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Главная"
+        item: "{{ site.url }}/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Блог"
+        item: "{{ site.url }}/blog/"
+      - "@type": "ListItem"
+        position: 3
+        name: "{{ cat.name }}"
+        item: "{{ site.url }}/blog/kategoriya/{{ cat.slug }}/"
+---
+<main class="blog-bg">
+    <div class="blog-hero">
+        <nav aria-label="Хлебные крошки">
+            <ol class="crumbs">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/blog/">Блог</a></li>
+                <li><span aria-current="page">{{ cat.name }}</span></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="section" style="padding-top: 24px">
+        <div class="section-header fade-up">
+            <span class="tag" style="font-size: 16px">Рубрика</span>
+            <h1 class="section-title">{{ cat.name }}</h1>
+            <p class="section-sub">{{ cat.posts.length }} {{ cat.posts.length | pluralRu("статья", "статьи", "статей") }} в этой рубрике</p>
+        </div>
+        {% set activeCategory = cat.slug %}
+        {% include "partials/category-chips.njk" %}
+        <div class="blog-grid">
+            {% for post in cat.posts %}
+            {% set delay = (loop.index0 % 3) + 1 %}
+            {% set showMeta = true %}
+            {% include "partials/post-card.njk" %}
+            {% endfor %}
+        </div>
+    </div>
+</main>

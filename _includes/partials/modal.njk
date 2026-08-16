@@ -1,0 +1,87 @@
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <div class="modal-left">
+            <h2>Сделайте этот шаг сегодня</h2>
+            <p>
+                Он решит многое завтра. Напишите мне, чтобы задать
+                вопросы и записаться на первую консультацию. Давайте
+                вместе поверим в вас!
+            </p>
+            <div class="modal-buttons">
+                <div class="modal-btn-row">
+                    <a
+                        href="{{ site.contacts.whatsapp }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="modal-btn"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                            />
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a
+                        href="{{ site.contacts.telegram }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="modal-btn"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon
+                                points="22 2 15 22 11 13 2 9 22 2"
+                            />
+                        </svg>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+                <div class="modal-btn-row">
+                    <a
+                        href="{{ site.contacts.tgChannel }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="modal-btn"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                            />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <span>TG-канал</span>
+                    </a>
+                    <a
+                        href="{{ site.contacts.max }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="modal-btn"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                            />
+                        </svg>
+                        <span>Max</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <img
+            src="/images/cta.webp"
+            alt="Алена Гервалова"
+            class="modal-img"
+            loading="lazy"
+        />
+    </div>
+</div>

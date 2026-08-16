@@ -1,0 +1,33 @@
+{%- set root = "" if isHome else "/" -%}
+<!-- FOOTER -->
+<footer class="footer-bg">
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <span class="logo-icon">Ψ</span>
+                <span
+                    class="logo-text"
+                    style="
+                        color: #fff;
+                        font-family: &quot;Fraunces&quot;, serif;
+                        font-size: 18px;
+                        font-weight: 400;
+                        letter-spacing: -0.5px;
+                    "
+                    >Алена Гервалова</span
+                >
+            </div>
+            <div class="footer-links">
+                <a href="{{ root }}#about">Обо мне</a>
+                <a href="{{ root }}#services">Услуги</a>
+                <a href="/blog/">Блог</a>
+                <a href="{{ root }}#testimonials">Отзывы</a>
+                <a href="{{ root }}#cta">Контакты</a>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <span>{{ site.copyrightYear }} Алена Гервалова. Все права защищены.</span>
+        </div>
+    </div>
+</footer>

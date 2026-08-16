@@ -1,0 +1,11 @@
+{%- if pagination and pagination.pages.length > 1 %}
+<nav aria-label="Страницы блога">
+    <ul class="pagination">
+        <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" rel="prev">←</a>{% else %}<span class="disabled">←</span>{% endif %}</li>
+        {%- for href in pagination.hrefs %}
+        <li>{% if page.url == href %}<span class="current" aria-current="page">{{ loop.index }}</span>{% else %}<a href="{{ href }}">{{ loop.index }}</a>{% endif %}</li>
+        {%- endfor %}
+        <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}" rel="next">→</a>{% else %}<span class="disabled">→</span>{% endif %}</li>
+    </ul>
+</nav>
+{%- endif %}

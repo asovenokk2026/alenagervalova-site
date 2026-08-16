@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ---- Редиректы ----
+# index.html → корень
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Старые внешние ссылки на b17 не трогаем; при переносе статей можно добавить редиректы вида:
+# [[redirects]]
+#   from = "/stary-adres/"
+#   to = "/blog/novy-adres/"
+#   status = 301
+
+# ---- Заголовки ----
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"

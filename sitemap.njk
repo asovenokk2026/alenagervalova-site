@@ -1,0 +1,41 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ buildDate | isoDay }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+    <lastmod>{{ (collections.posts[0].data.updated or collections.posts[0].date or buildDate) | isoDay }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- for c in collections.categoriesWithPosts %}
+  <url>
+    <loc>{{ site.url }}/blog/kategoriya/{{ c.slug }}/</loc>
+    <lastmod>{{ (c.posts[0].data.updated or c.posts[0].date) | isoDay }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+{%- endfor %}
+{%- for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ (post.data.updated or post.date) | isoDay }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    {%- if post.data.image %}
+    <image:image>
+      <image:loc>{{ post.data.image | absoluteUrl }}</image:loc>
+      <image:title>{{ post.data.title | escape }}</image:title>
+    </image:image>
+    {%- endif %}
+  </url>
+{%- endfor %}
+</urlset>

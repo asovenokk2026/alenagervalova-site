@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.posts
+  size: 9
+  alias: posts
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+isBlog: true
+includeBlogCss: true
+eleventyComputed:
+  title: "{{ site.blog.title }}"
+  seoTitle: "{{ site.blog.seoTitle }}{% if pagination.pageNumber > 0 %} — страница {{ pagination.pageNumber + 1 }}{% endif %}"
+  description: "{{ site.blog.description }}"
+  canonical: "{{ page.url }}"
+  jsonld:
+    "@context": "https://schema.org"
+    "@graph":
+      - "@type": "Blog"
+        "@id": "{{ site.url }}/blog/#blog"
+        name: "{{ site.blog.title }}"
+        description: "{{ site.blog.description }}"
+        url: "{{ site.url }}/blog/"
+        inLanguage: "ru-RU"
+        publisher:
+          "@type": "Organization"
+          "@id": "{{ site.url }}/#organization"
+          name: "{{ site.shortName }}"
+        author:
+          "@type": "Person"
+          "@id": "{{ site.url }}/#person"
+          name: "{{ site.author }}"
+      - "@type": "BreadcrumbList"
+        itemListElement:
+          - "@type": "ListItem"
+            position: 1
+            name: "Главная"
+            item: "{{ site.url }}/"
+          - "@type": "ListItem"
+            position: 2
+            name: "Блог"
+            item: "{{ site.url }}/blog/"
+---
+<main class="blog-bg">
+    <div class="blog-hero">
+        <nav aria-label="Хлебные крошки">
+            <ol class="crumbs">
+                <li><a href="/">Главная</a></li>
+                <li><span aria-current="page">Блог</span></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="section" style="padding-top: 24px">
+        <div class="section-header fade-up">
+            <span class="tag" style="font-size: 16px">Статьи</span>
+            <h1 class="section-title">{{ site.blog.title }}</h1>
+            <p class="section-sub">{{ site.blog.description }}</p>
+        </div>
+        {% include "partials/category-chips.njk" %}
+        {% if posts.length %}
+        <div class="blog-grid">
+            {% for post in posts %}
+            {% set delay = (loop.index0 % 3) + 1 %}
+            {% set showMeta = true %}
+            {% include "partials/post-card.njk" %}
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="blog-empty">Статей пока нет — скоро здесь появятся первые публикации.</p>
+        {% endif %}
+        {% include "partials/pagination.njk" %}
+    </div>
+</main>

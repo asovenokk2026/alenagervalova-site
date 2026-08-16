@@ -1,0 +1,8 @@
+{%- if collections.categoriesWithPosts.length %}
+<nav class="blog-cats fade-up" aria-label="Рубрики блога">
+    <a href="/blog/"{% if not activeCategory %} class="active"{% endif %}>Все статьи</a>
+    {%- for c in collections.categoriesWithPosts %}
+    <a href="/blog/kategoriya/{{ c.slug }}/"{% if activeCategory == c.slug %} class="active" aria-current="page"{% endif %}>{{ c.name }}</a>
+    {%- endfor %}
+</nav>
+{%- endif %}

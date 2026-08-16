@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://alenagervalova.ru/sitemap.xml
+
+Host: alenagervalova.ru

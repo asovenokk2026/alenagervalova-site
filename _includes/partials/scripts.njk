@@ -1,0 +1,57 @@
+<script>
+    // Header scroll effect
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+    });
+    // Modal
+    function openModal() {
+        const m = document.getElementById("modal");
+        m.style.display = "flex";
+        requestAnimationFrame(() => m.classList.add("active"));
+        document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+        const m = document.getElementById("modal");
+        m.classList.remove("active");
+        setTimeout(() => {
+            m.style.display = "none";
+        }, 300);
+        document.body.style.overflow = "";
+    }
+    document
+        .getElementById("modal")
+        .addEventListener("click", function (e) {
+            if (e.target === this) closeModal();
+        });
+    // Mobile menu
+    function openMobileMenu() {
+        const m = document.getElementById("mobileMenu");
+        m.style.display = "flex";
+        requestAnimationFrame(() => m.classList.add("active"));
+        document.body.style.overflow = "hidden";
+    }
+    function closeMobileMenu() {
+        const m = document.getElementById("mobileMenu");
+        m.classList.remove("active");
+        setTimeout(() => {
+            m.style.display = "none";
+        }, 300);
+        document.body.style.overflow = "";
+    }
+    // Scroll animations (Intersection Observer)
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    );
+    document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+</script>

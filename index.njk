@@ -1,0 +1,708 @@
+---
+layout: layouts/base.njk
+permalink: /
+isHome: true
+title: "Алена Гервалова — Психолог | КПТ и ЭОТ"
+seoTitle: "Алена Гервалова — Психолог | КПТ и ЭОТ"
+description: "Практикующий психолог Алена Гервалова. Консультации онлайн. Методы КПТ и эмоционально-образной терапии. 500+ довольных клиентов."
+ogDescription: "Практикующий психолог. Консультации онлайн. Методы КПТ и ЭОТ. 500+ довольных клиентов."
+image: /images/hero.webp
+canonical: /
+eleventyExcludeFromCollections: true
+jsonld:
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": ["ProfessionalService", "Organization"]
+      "@id": "https://alenagervalova.ru/#organization"
+      name: "Алена Гервалова — психолог"
+      url: "https://alenagervalova.ru/"
+      image: "https://alenagervalova.ru/images/hero.webp"
+      logo: "https://alenagervalova.ru/favicon-192.png"
+      description: "Онлайн-консультации психолога. Когнитивно-поведенческая терапия (КПТ) и эмоционально-образная терапия (ЭОТ). Тревога, отношения, самооценка, выгорание."
+      priceRange: "от 2 500 ₽"
+      areaServed: "RU"
+      availableLanguage: "ru"
+      sameAs: ["https://t.me/psylifehelp", "https://www.b17.ru/articles/bogomolova_alena/"]
+      founder: { "@id": "https://alenagervalova.ru/#person" }
+    - "@type": "Person"
+      "@id": "https://alenagervalova.ru/#person"
+      name: "Алена Гервалова"
+      jobTitle: "Психолог, КПТ и ЭОТ"
+      url: "https://alenagervalova.ru/"
+      image: "https://alenagervalova.ru/images/hero.webp"
+      worksFor: { "@id": "https://alenagervalova.ru/#organization" }
+    - "@type": "WebSite"
+      "@id": "https://alenagervalova.ru/#website"
+      url: "https://alenagervalova.ru/"
+      name: "Алена Гервалова — Психолог"
+      inLanguage: "ru-RU"
+      publisher: { "@id": "https://alenagervalova.ru/#organization" }
+---
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-text">
+                <div class="badge fade-up">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2l2.09 6.26L20.18 9.27l-4.64 4.53L16.54 20 12 16.77 7.46 20l1-6.2L3.82 9.27l6.09-1.01z"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    <span style="font-size: 16px">Дипломированный психолог</span>
+                </div>
+                <h1 class="hero-title fade-up d1">
+                    Онлайн-консультация психолога
+                </h1>
+                <img
+                    src="images/hero.webp"
+                    alt="Алена Гервалова"
+                    class="hero-photo-mobile fade-up d2"
+                    loading="eager"
+                />
+                <p class="hero-sub fade-up d2" style="text-wrap: balance; text-align: left;">
+                    Помогу спокойно разобраться с тревогой, отношениями,
+                    самооценкой и выгоранием. Онлайн-сессия, запись в WhatsApp,
+                    Telegram или Max. Стоимость от 2 500 ₽
+                </p>
+                <div class="hero-ctas fade-up d3" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch;">
+                    <a
+                        href="https://wa.me/79035118341"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                        style="justify-content: center; border: 1px solid transparent;"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                            />
+                        </svg>
+                        WhatsApp
+                    </a>
+                    <a
+                        href="https://t.me/AL_2026a"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                        style="justify-content: center; border: 1px solid transparent;"
+                    >
+                        Telegram
+                    </a>
+                    <a
+                        href="https://t.me/psylifehelp"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                        style="justify-content: center; border: 1px solid transparent;"
+                    >
+                        TG-канал
+                    </a>
+                    <a
+                        href="https://max.ru/app/chat?phone=79035118341"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                        style="justify-content: center; border: 1px solid transparent;"
+                    >
+                        Max
+                    </a>
+                </div>
+                <div
+                    class="hero-steps fade-up d3"
+                    style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 16px;
+                        color: #5a6b80;
+                    "
+                >
+                    <span>Напишите в мессенджер</span>
+                    <span style="color: #2f86c9; font-weight: 600">→</span>
+                    <span>Согласуем время</span>
+                    <span style="color: #2f86c9; font-weight: 600">→</span>
+                    <span>Первая онлайн-сессия 50 минут</span>
+                </div>
+                <div class="trust fade-up d4">
+                    <div class="trust-price">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>От 2 500 ₽</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>Онлайн-формат</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>500+ довольных клиентов</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>КПТ + ЭОТ</span>
+                    </div>
+                </div>
+            </div>
+            <img
+                src="images/hero.webp"
+                alt="Алена Гервалова — психолог"
+                class="hero-photo fade-up d2"
+                loading="eager"
+            />
+        </section>
+        <!-- SERVICES -->
+        <section class="services-bg" id="services">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">С чем я работаю</span>
+                    <h2 class="section-title">Я помогу:</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card fade-up d1">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                                />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Почувствовать уверенность в себе</h3>
+                            <p>
+                                Перестать зависеть от чужого мнения и научиться
+                                доверять своим решениям
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-up d2">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Построить гармоничные отношения</h3>
+                            <p>
+                                Выйти из кризиса с партнёром, пережить
+                                расставание или улучшить отношения с окружающими
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-up d3">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <polygon
+                                    points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+                                />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Найти себя и призвание</h3>
+                            <p>
+                                Понять, чего вы хотите на самом деле, и
+                                выстроить чёткий план по самореализации
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-up d4">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Освободиться от прошлого</h3>
+                            <p>
+                                Проработать травмы, обиды и токсичные установки,
+                                которые мешают двигаться вперёд
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-up d5">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Обрести внутренний стержень</h3>
+                            <p>
+                                Выстроить внутреннюю устойчивость, которая не
+                                даст сломаться в трудный момент
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-up d6">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="2" y1="2" x2="22" y2="22" />
+                                <path d="M12 12H2v4h6" />
+                                <path d="M22 12v4" />
+                                <path d="M18 22c-2-4-4-8.25-8-12" />
+                            </svg>
+                        </div>
+                        <div class="service-text">
+                            <h3>Отказаться от вредных привычек</h3>
+                            <p>
+                                Разобраться с привычками и причинами, которые
+                                их поддерживают
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="fade-up"
+                    style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 16px;
+                        justify-content: center;
+                        margin-top: 40px;
+                    "
+                >
+                    <a
+                        href="https://wa.me/79035118341"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                            />
+                        </svg>
+                        Написать в WhatsApp
+                    </a>
+                    <a
+                        href="https://t.me/AL_2026a"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                    >
+                        Написать в Telegram
+                    </a>
+                    <a
+                        href="https://max.ru/app/chat?phone=79035118341"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn-primary"
+                    >
+                        Написать в Max
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ABOUT -->
+        <section class="about-bg" id="about">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">Обо мне</span>
+                    <h2 class="section-title">Меня зовут Алена Гервалова</h2>
+                    <p class="section-sub">
+                        Практикующий психолог с дипломами ведущих институтов.
+                        В основе моей работы — когнитивно-поведенческая терапия
+                        (КПТ), научно обоснованный метод, который помогает
+                        структурно разобраться с запросом и увидеть, как мысли
+                        влияют на состояние. Дополняю её эмоционально-образной
+                        терапией (ЭОТ) — бережным подходом к работе с эмоциями
+                        через образы. Вместе они дают устойчивый и ощутимый
+                        результат.
+                    </p>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card fade-up d1">
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5 7.5V20h6v-2.5c2.9-1.2 5-4.1 5-7.5a8 8 0 0 0-8-8z"
+                                />
+                                <path
+                                    d="M9.5 9.5c.6-.3 1.6-.8 2.5-.8s1.9.5 2.5.8"
+                                />
+                            </svg>
+                        </div>
+                        <h3>Не просто разговоры</h3>
+                        <p>
+                            Эффективные инструменты для работы с собой.
+                            Сочетание методов когнитивно-поведенческой терапии и
+                            эмоционально-образной терапии для получения
+                            результата.
+                        </p>
+                    </div>
+                    <div class="about-card fade-up d2">
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polygon
+                                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                                />
+                            </svg>
+                        </div>
+                        <h3>Быстрый результат</h3>
+                        <p>
+                            Никаких бесконечных копаний в прошлом. Фокус на том,
+                            что беспокоит сейчас — и первые результаты вы
+                            заметите уже через 3–5 встреч.
+                        </p>
+                    </div>
+                    <div class="about-card fade-up d3">
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                                />
+                            </svg>
+                        </div>
+                        <h3>Стать себе психологом</h3>
+                        <p>
+                            Моя цель — дать не только поддержку, но и понятные
+                            стратегии, чтобы в будущем вы справлялись со своими
+                            проблемами самостоятельно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HOW IT WORKS -->
+        <section class="how-bg">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">Как это работает</span>
+                    <h2 class="section-title">Три шага к переменам</h2>
+                    <p class="section-sub">
+                        Онлайн-консультации в удобное для вас время. Встреча в
+                        безопасном и доверительном пространстве.
+                    </p>
+                </div>
+                <div class="steps">
+                    <div class="step fade-up d1">
+                        <div class="step-num">1</div>
+                        <h3>Напишите мне</h3>
+                        <p>
+                            Свяжитесь со мной в любом из мессенджеров — задайте
+                            вопросы и запишитесь на первую консультацию
+                        </p>
+                    </div>
+                    <div class="step fade-up d2">
+                        <div class="step-num">2</div>
+                        <h3>Проведем первую сессию</h3>
+                        <p>
+                            Вместе разберём вашу ситуацию, и я дам конкретные
+                            инструменты, которые можно применять сразу
+                        </p>
+                    </div>
+                    <div class="step fade-up d3">
+                        <div class="step-num">3</div>
+                        <h3>Отследим первые изменения</h3>
+                        <p>
+                            Вы замечаете, как тревога отступает, мысли
+                            становятся яснее, а решения даются легко и без
+                            сомнений
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-bg" id="testimonials">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">Отзывы клиентов</span>
+                    <h2 class="section-title">
+                        Что говорят те, кто уже прошёл этот путь
+                    </h2>
+                </div>
+                <div class="reviews-grid">
+                    {%- set reviews = [
+                        { d: 1, extra: false, text: "Алена помогла мне выбраться из состояния, в котором я находилась несколько лет. Уже после третьей сессии я перестала просыпаться с тревогой. Сейчас я наконец-то чувствую, что управляю своей жизнью.", letter: "М", name: "Мария", detail: "28 лет, тревожность" },
+                        { d: 2, extra: false, text: "Долго не мог решиться на терапию — казалось, это «не для мужчин». Алена сразу создала комфортную атмосферу. За 6 сессий я разобрался с выгоранием и нашёл новую мотивацию. Жалею только, что не пришёл раньше!", letter: "А", name: "Андрей", detail: "35 лет, выгорание" },
+                        { d: 3, extra: false, text: "После развода я думала, что больше никогда не смогу доверять людям. На терапии я проработала боль и обиду. Сейчас я в новых здоровых отношениях и чувствую себя по-настоящему счастливой.", letter: "Е", name: "Елена", detail: "32 года, отношения" },
+                        { d: 4, extra: true, text: "Я всю жизнь считала себя недостаточно хорошей — на работе, в семье, в отношениях. На сессиях я наконец увидела, откуда растут эти установки, и заменила их на здоровые. Впервые чувствую, что я достойна хорошего.", letter: "О", name: "Ольга", detail: "40 лет, самооценка" },
+                        { d: 5, extra: true, text: "Пришёл к Алене, когда понял, что ненавижу свою работу, но боюсь что-то менять. За несколько сессий мы нашли корень проблемы — страх неудачи из детства. Сейчас я сменил профессию и впервые с радостью иду на работу.", letter: "Д", name: "Дмитрий", detail: "29 лет, карьера" },
+                        { d: 6, extra: true, text: "Курила 12 лет и перепробовала всё — пластыри, таблетки, силу воли. Алена работала не с привычкой, а с причиной: тревогой, которую я заедала сигаретой. Не курю уже 8 месяцев и даже не тянет.", letter: "Н", name: "Наталья", detail: "34 года, вредные привычки" }
+                    ] -%}
+                    {%- for r in reviews %}
+                    <div class="review-card fade-up d{{ r.d }}{% if r.extra %} mobile-reviews-extra{% endif %}">
+                        <div class="review-stars">
+                            <span class="material-symbols-rounded">star</span
+                            ><span class="material-symbols-rounded">star</span
+                            ><span class="material-symbols-rounded">star</span
+                            ><span class="material-symbols-rounded">star</span
+                            ><span class="material-symbols-rounded">star</span>
+                        </div>
+                        <p class="review-quote">
+                            {{ r.text }}
+                        </p>
+                        <div class="review-author">
+                            <div class="review-avatar">{{ r.letter }}</div>
+                            <div class="review-info">
+                                <span class="review-name">{{ r.name }}</span
+                                ><span class="review-detail"
+                                    >{{ r.detail }}</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    {%- endfor %}
+                </div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 24px;
+                    "
+                    class="mobile-reviews-btn"
+                >
+                    <button
+                        onclick="
+                            document
+                                .querySelectorAll('.mobile-reviews-extra')
+                                .forEach((e) => (e.style.display = 'flex'));
+                            this.parentElement.style.display = 'none';
+                        "
+                        style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 8px;
+                            padding: 14px 32px;
+                            background: rgba(255, 255, 255, 0.08);
+                            color: #fff;
+                            border-radius: 28px;
+                            font-size: 15px;
+                            font-weight: 500;
+                            border: 1px solid rgba(255, 255, 255, 0.19);
+                            width: 100%;
+                            justify-content: center;
+                        "
+                    >
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="2"
+                        >
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                        Смотреть все отзывы
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- VISION -->
+        <section class="vision-bg">
+            <div class="vision">
+                <img
+                    src="images/vision.webp"
+                    alt="Визия"
+                    class="vision-img fade-up"
+                    loading="lazy"
+                />
+                <div class="vision-text">
+                    <h2 class="fade-up d1">Представьте, что через месяц...</h2>
+                    <p class="fade-up d2">
+                        Тревога больше не управляет вашим днём. Вы спокойно
+                        засыпаете, строите планы и чувствуете, что жизнь снова в
+                        ваших руках.
+                    </p>
+                    <p class="vision-quote fade-up d3" style="font-size: 19px">
+                        Ваша жизнь может измениться гораздо быстрее, чем вы
+                        думаете.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- ARTICLES (последние 3 статьи блога — генерируется автоматически) -->
+        <section class="articles-bg" id="blog">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">Статьи</span>
+                    <h2 class="section-title">Мой блог</h2>
+                    <p class="section-sub">
+                        Авторские статьи о психологии, отношениях и внутренних
+                        переменах
+                    </p>
+                </div>
+                {%- set latest = collections.posts | limit(3) %}
+                {%- if latest.length %}
+                <div class="articles-grid">
+                    {%- for post in latest %}
+                    {%- set delay = loop.index %}
+                    {%- set showMeta = false %}
+                    {% include "partials/post-card.njk" %}
+                    {%- endfor %}
+                </div>
+                {%- endif %}
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 32px;
+                    "
+                    class="fade-up"
+                >
+                    <a
+                        href="/blog/"
+                        class="view-all-btn"
+                        >Все статьи →</a
+                    >
+                </div>
+            </div>
+        </section>
+        <!-- EDUCATION -->
+        <section class="edu-bg">
+            <div class="section">
+                <div class="section-header fade-up">
+                    <span class="tag" style="font-size: 16px">Образование</span>
+                    <h2 class="section-title">Мои дипломы и квалификация</h2>
+                    <p class="section-sub">
+                        Профессиональное образование, подтверждённое дипломами
+                        ведущих ВУЗов
+                    </p>
+                </div>
+                <div class="edu-cards">
+                    <div class="edu-card fade-up d1">
+                        <div class="edu-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <h3>Московский институт психоанализа</h3>
+                        <p>Диплом психолога</p>
+                    </div>
+                    <div class="edu-card fade-up d2">
+                        <div class="edu-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"
+                                />
+                                <path
+                                    d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+                                />
+                            </svg>
+                        </div>
+                        <h3>Московский институт психологии</h3>
+                        <p>
+                            Диплом о прохождении метода когнитивно-поведенческой
+                            терапии
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA -->
+        <section class="cta-bg" id="cta">
+            <div class="cta">
+                <div class="cta-content">
+                    <h2 class="fade-up">Сделайте этот важный шаг сегодня</h2>
+                    <p class="fade-up d1">
+                        Он решит многое завтра. Напишите мне, чтобы задать
+                        вопросы и записаться на первую консультацию. Давайте
+                        вместе поверим в вас!
+                    </p>
+                    <div class="cta-buttons fade-up d2">
+                        <div class="cta-btn-row">
+                            <a
+                                href="https://wa.me/79035118341"
+                                target="_blank"
+                                rel="noopener"
+                                class="cta-btn"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                    />
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a
+                                href="https://t.me/AL_2026a"
+                                target="_blank"
+                                rel="noopener"
+                                class="cta-btn"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon
+                                        points="22 2 15 22 11 13 2 9 22 2"
+                                    />
+                                </svg>
+                                <span>Telegram</span>
+                            </a>
+                        </div>
+                        <div class="cta-btn-row">
+                            <a
+                                href="https://t.me/psylifehelp"
+                                target="_blank"
+                                rel="noopener"
+                                class="cta-btn"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                                    />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                                <span>TG-канал</span>
+                            </a>
+                            <a
+                                href="https://max.ru/app/chat?phone=79035118341"
+                                target="_blank"
+                                rel="noopener"
+                                class="cta-btn"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                    />
+                                </svg>
+                                <span>Max</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="fade-up d3"
+                        style="
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            gap: 12px;
+                            font-size: 17px;
+                            color: rgba(255, 255, 255, 0.85);
+                        "
+                    >
+                        <span>Напишите в мессенджер</span>
+                        <span style="color: #8fc0e6; font-weight: 600">→</span>
+                        <span>Согласуем время</span>
+                        <span style="color: #8fc0e6; font-weight: 600">→</span>
+                        <span>Первая онлайн-сессия 50 минут</span>
+                    </div>
+                </div>
+                <img
+                    src="images/cta.webp"
+                    alt="Алена Гервалова"
+                    class="cta-img fade-up d2"
+                    loading="lazy"
+                />
+            </div>
+        </section>

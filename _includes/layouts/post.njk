@@ -1,0 +1,101 @@
+---
+layout: layouts/base.njk
+---
+{%- set cat = categories | selectattr("slug", "equalto", category) | first -%}
+<main class="blog-bg">
+    <article class="post">
+        <header class="post-head">
+            <nav aria-label="Хлебные крошки">
+                <ol class="crumbs">
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/blog/">Блог</a></li>
+                    {% if cat %}<li><a href="/blog/kategoriya/{{ cat.slug }}/">{{ cat.name }}</a></li>{% endif %}
+                    <li><span aria-current="page">{{ title | truncate(60) }}</span></li>
+                </ol>
+            </nav>
+            <h1 class="post-title">{{ title }}</h1>
+            {% if description %}<p class="post-lead">{{ description }}</p>{% endif %}
+            <div class="post-meta">
+                <span class="author">
+                    <span class="avatar" aria-hidden="true">{{ (author or site.author) | first }}</span>
+                    <span>{{ author or site.author }}</span>
+                </span>
+                {% if cat %}<a class="cat" href="/blog/kategoriya/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
+                <time datetime="{{ date | isoDate }}">{{ date | ruDate }}</time>
+                {% if updated %}<time datetime="{{ updated | isoDate }}">Обновлено {{ updated | ruDate }}</time>{% endif %}
+                <span>{{ content | readingTime }} мин чтения</span>
+            </div>
+        </header>
+
+        {% if image %}
+        <img
+            src="{{ image }}"
+            alt="{{ imageAlt or title }}"
+            class="post-cover"
+            width="1200"
+            height="675"
+            fetchpriority="high"
+           
+        />
+        {% endif %}
+
+        <div class="post-body">
+{{ content | safe }}
+        </div>
+
+        {% if updated %}<p class="post-updated">Последнее обновление: {{ updated | ruDate }}</p>{% endif %}
+
+        <aside class="post-cta" id="zapis">
+            <h2>Хотите разобрать свою ситуацию?</h2>
+            <p>
+                Онлайн-консультация 50 минут в удобное время. Напишите мне
+                в любой мессенджер — согласуем время первой сессии.
+            </p>
+            <div class="post-cta-actions">
+                <a href="#" class="btn-primary" onclick="openModal(); return false;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    Записаться на консультацию
+                </a>
+                <a href="{{ site.contacts.whatsapp }}" target="_blank" rel="noopener" class="btn-ghost">WhatsApp</a>
+                <a href="{{ site.contacts.telegram }}" target="_blank" rel="noopener" class="btn-ghost">Telegram</a>
+            </div>
+        </aside>
+
+        {% if faq and faq.length %}
+        <section class="post-faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Частые вопросы</h2>
+            {% for item in faq %}
+            {% if item.question and item.answer %}
+            <details class="faq-item"{% if loop.first %} open{% endif %}>
+                <summary>{{ item.question }}</summary>
+                <div class="faq-answer">{{ item.answer | markdown | safe }}</div>
+            </details>
+            {% endif %}
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        <a href="/blog/" class="post-back">← Все статьи блога</a>
+    </article>
+</main>
+
+{%- set relatedPosts = collections.posts | related(page.url, category, 3) -%}
+{% if relatedPosts.length %}
+<section class="post-related" aria-labelledby="related-title">
+    <div class="post-related-inner">
+        <div class="section-header fade-up">
+            <span class="tag" style="font-size: 16px">Читайте также</span>
+            <h2 class="section-title" id="related-title">Другие статьи блога</h2>
+        </div>
+        <div class="articles-grid">
+            {% for post in relatedPosts %}
+            {% set delay = loop.index %}
+            {% set showMeta = true %}
+            {% include "partials/post-card.njk" %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,60 @@
+{%- set root = "" if isHome else "/" -%}
+<!-- HEADER -->
+<header class="header" id="header">
+    <a href="{{ '#' if isHome else '/' }}" class="logo">
+        <span class="logo-icon">Ψ</span>
+        <span class="logo-text">Алена Гервалова</span>
+    </a>
+    <nav class="nav">
+        <a href="{{ root }}#about">Обо мне</a>
+        <a href="{{ root }}#services">Услуги</a>
+        <a href="/blog/"{% if isBlog %} aria-current="page"{% endif %}>Блог</a>
+        <a href="{{ root }}#testimonials">Отзывы</a>
+        <a href="{{ root }}#cta">Контакты</a>
+        <a
+            href="#"
+            class="nav-cta"
+            onclick="
+                openModal();
+                return false;
+            "
+            >Записаться</a
+        >
+        <button
+            class="burger"
+            onclick="openMobileMenu()"
+            aria-label="Меню"
+        >
+            <svg viewBox="0 0 24 24">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+    </nav>
+</header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Закрыть меню">
+        <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+    </button>
+    <a href="{{ root }}#about" onclick="closeMobileMenu()">Обо мне</a>
+    <a href="{{ root }}#services" onclick="closeMobileMenu()">Услуги</a>
+    <a href="/blog/">Блог</a>
+    <a href="{{ root }}#testimonials" onclick="closeMobileMenu()">Отзывы</a>
+    <a href="{{ root }}#cta" onclick="closeMobileMenu()">Контакты</a>
+    <a
+        href="#"
+        class="nav-cta"
+        onclick="
+            closeMobileMenu();
+            openModal();
+            return false;
+        "
+        style="font-size: 18px; padding: 14px 32px"
+        >Записаться</a
+    >
+</div>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Админ-панель блога — Алена Гервалова</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <!-- Decap CMS (бывший Netlify CMS) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Стили сайта в окне предпросмотра статьи
+      CMS.registerPreviewStyle("/css/main.css");
+      CMS.registerPreviewStyle("/css/blog.css");
+      CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap");
+
+      // Предпросмотр статьи примерно так, как она выглядит на сайте
+      var PostPreview = createClass({
+        render: function () {
+          var entry = this.props.entry;
+          var img = entry.getIn(["data", "image"]);
+          var faq = entry.getIn(["data", "faq"]);
+          var faqList = faq ? faq.toJS() : [];
+          return h(
+            "main",
+            { className: "blog-bg" },
+            h(
+              "article",
+              { className: "post" },
+              h("div", { className: "post-head" },
+                h("h1", { className: "post-title" }, entry.getIn(["data", "title"]) || "Заголовок статьи"),
+                h("p", { className: "post-lead" }, entry.getIn(["data", "description"]) || "")
+              ),
+              img ? h("img", { className: "post-cover", src: this.props.getAsset(img).toString(), alt: entry.getIn(["data", "imageAlt"]) || "" }) : null,
+              h("div", { className: "post-body" }, this.props.widgetFor("body")),
+              faqList.length
+                ? h("section", { className: "post-faq" },
+                    h("h2", {}, "Частые вопросы"),
+                    faqList.map(function (f, i) {
+                      return h("details", { className: "faq-item", key: i, open: i === 0 },
+                        h("summary", {}, f.question || ""),
+                        h("div", { className: "faq-answer" }, f.answer || "")
+                      );
+                    })
+                  )
+                : null
+            )
+          );
+        },
+      });
+      CMS.registerPreviewTemplate("blog", PostPreview);
+    </script>
+  </body>
+</html>
