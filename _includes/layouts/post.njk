@@ -159,11 +159,37 @@ layout: layouts/base.njk
 {% endif %}
 
 <div class="sticky-cta" id="stickyCta" hidden>
-    <div class="sticky-cta-text">
-        <strong>Онлайн-консультация</strong>
-        <span>50 минут · от 2 500 ₽</span>
+    <div class="sticky-messengers" id="stickyMessengers" hidden>
+        <span class="sticky-messengers-title">Напишите в удобный мессенджер</span>
+        <div class="sticky-messengers-grid">
+            <a href="{{ site.contacts.whatsapp }}" target="_blank" rel="noopener" class="sticky-msg sticky-msg-wa">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+                WhatsApp
+            </a>
+            <a href="{{ site.contacts.telegram }}" target="_blank" rel="noopener" class="sticky-msg sticky-msg-tg">
+                <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
+                Telegram
+            </a>
+            <a href="{{ site.contacts.max }}" target="_blank" rel="noopener" class="sticky-msg sticky-msg-max">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+                Max
+            </a>
+            <a href="{{ site.contacts.tgChannel }}" target="_blank" rel="noopener" class="sticky-msg sticky-msg-ch">
+                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                Telegram-канал
+            </a>
+        </div>
     </div>
-    <a href="#" class="sticky-cta-btn" onclick="openModal(); return false;">Записаться</a>
+    <div class="sticky-cta-bar">
+        <div class="sticky-cta-text">
+            <strong>Онлайн-консультация</strong>
+            <span>50 минут · от 2 500 ₽</span>
+        </div>
+        <button type="button" class="sticky-cta-btn" id="stickyToggle" aria-expanded="false">
+            <span class="sticky-cta-btn-label">Записаться</span>
+            <svg class="sticky-cta-chevron" viewBox="0 0 24 24"><polyline points="6 15 12 9 18 15" /></svg>
+        </button>
+    </div>
 </div>
 
 <script>
@@ -171,7 +197,31 @@ layout: layouts/base.njk
     var bar = document.getElementById("stickyCta");
     if (!bar) return;
     var finalCta = document.getElementById("zapis");
+    var panel = document.getElementById("stickyMessengers");
+    var toggle = document.getElementById("stickyToggle");
     var shown = false;
+    var open = false;
+
+    function setOpen(v) {
+        open = v;
+        panel.hidden = !v;
+        toggle.setAttribute("aria-expanded", v ? "true" : "false");
+        bar.classList.toggle("is-open", v);
+        toggle.querySelector(".sticky-cta-btn-label").textContent = v ? "Свернуть" : "Записаться";
+    }
+
+    toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setOpen(!open);
+    });
+
+    document.addEventListener("click", function (e) {
+        if (open && !bar.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && open) setOpen(false);
+    });
 
     function update() {
         var scrolled = window.scrollY > 400;
@@ -184,6 +234,7 @@ layout: layouts/base.njk
         if (need !== shown) {
             shown = need;
             bar.hidden = !need;
+            if (!need && open) setOpen(false);
         }
     }
 
