@@ -204,7 +204,7 @@
 }
 .post-cover {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   object-fit: cover;
   border-radius: 20px;
   margin: 32px 0 8px;
@@ -572,5 +572,250 @@
   }
   .nf-code {
     font-size: 72px;
+  }
+}
+
+
+/* ===== Врезка в середине статьи ===== */
+.post-inline-cta {
+  margin: 36px 0;
+  padding: 22px 24px;
+  background: #e9f2fb;
+  border-left: 3px solid #2f86c9;
+  border-radius: 0 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.post-inline-cta-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a2744;
+  margin: 0;
+}
+.post-inline-cta-text strong {
+  font-weight: 600;
+}
+.post-inline-cta-link {
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2f86c9;
+  transition: color 0.2s;
+}
+.post-inline-cta-link:hover {
+  color: #1a6ba8;
+}
+
+/* ===== Факты о консультации в блоке записи ===== */
+.post-cta-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: -6px;
+}
+.post-cta-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+}
+.post-cta-fact svg {
+  width: 17px;
+  height: 17px;
+  stroke: #8fc0e6;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ===== Отзыв в блоке записи ===== */
+.post-cta-review {
+  margin: 4px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.post-cta-review blockquote {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  margin: 0;
+}
+.post-cta-review figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== Блок об авторе ===== */
+.post-author {
+  margin-top: 56px;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #bcd8ee;
+  border-radius: 24px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.post-author-photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid #e9f2fb;
+}
+.post-author-text {
+  flex: 1;
+}
+.post-author-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #2f86c9;
+  margin-bottom: 6px;
+}
+.post-author h2 {
+  font-family: "Fraunces", serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  color: #1a2744;
+  margin: 0 0 10px;
+}
+.post-author p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a5b70;
+  margin: 0 0 18px;
+}
+.post-author-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.post-author-actions .btn-primary {
+  padding: 12px 24px;
+  font-size: 15px;
+}
+.post-author-more {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2f86c9;
+}
+.post-author-more:hover {
+  color: #1a6ba8;
+}
+
+/* ===== Липкая панель записи ===== */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(26, 39, 68, 0.97);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  animation: stickyUp 0.28s ease;
+}
+.sticky-cta[hidden] {
+  display: none;
+}
+@keyframes stickyUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.sticky-cta-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+  min-width: 0;
+}
+.sticky-cta-text strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.sticky-cta-text span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+.sticky-cta-btn {
+  flex-shrink: 0;
+  padding: 12px 28px;
+  border-radius: 28px;
+  background: #2f86c9;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+.sticky-cta-btn:hover {
+  background: #1a6ba8;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .post-inline-cta {
+    padding: 18px 18px;
+    margin: 28px 0;
+  }
+  .post-inline-cta-text {
+    font-size: 15px;
+  }
+  .post-cta-facts {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .post-author {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 22px;
+    gap: 18px;
+  }
+  .post-author-photo {
+    width: 108px;
+    height: 108px;
+  }
+  .post-author-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .post-author-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .sticky-cta {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .sticky-cta-text strong {
+    font-size: 14px;
+  }
+  .sticky-cta-text span {
+    font-size: 12px;
+  }
+  .sticky-cta-btn {
+    padding: 11px 22px;
+    font-size: 14px;
   }
 }
