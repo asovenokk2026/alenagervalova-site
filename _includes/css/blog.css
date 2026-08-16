@@ -715,64 +715,6 @@
   color: #1a6ba8;
 }
 
-/* ===== Липкая панель записи ===== */
-.sticky-cta {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 20px;
-  background: rgba(26, 39, 68, 0.97);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  animation: stickyUp 0.28s ease;
-}
-.sticky-cta[hidden] {
-  display: none;
-}
-@keyframes stickyUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-.sticky-cta-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.35;
-  min-width: 0;
-}
-.sticky-cta-text strong {
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-}
-.sticky-cta-text span {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.65);
-}
-.sticky-cta-btn {
-  flex-shrink: 0;
-  padding: 12px 28px;
-  border-radius: 28px;
-  background: #2f86c9;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-.sticky-cta-btn:hover {
-  background: #1a6ba8;
-  transform: translateY(-1px);
-}
-
 @media (max-width: 720px) {
   .post-inline-cta {
     padding: 18px 18px;
@@ -804,7 +746,159 @@
     width: 100%;
     justify-content: center;
   }
-  .sticky-cta {
+  .sticky-cta-text span {
+    font-size: 12px;
+  }
+  .sticky-cta-btn {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Липкая панель записи ===== */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background: rgba(26, 39, 68, 0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  animation: stickyUp 0.28s ease;
+}
+.sticky-cta[hidden] {
+  display: none;
+}
+@keyframes stickyUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.sticky-cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.sticky-cta-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+  min-width: 0;
+}
+.sticky-cta-text strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.sticky-cta-text span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+.sticky-cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 28px;
+  background: #2f86c9;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.sticky-cta-btn:hover {
+  background: #1a6ba8;
+  transform: translateY(-1px);
+}
+.sticky-cta-chevron {
+  width: 17px;
+  height: 17px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s;
+}
+.sticky-cta.is-open .sticky-cta-chevron {
+  transform: rotate(180deg);
+}
+
+/* Раскрывающийся список мессенджеров */
+.sticky-messengers {
+  padding: 20px 20px 6px;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: msgUp 0.24s ease;
+}
+.sticky-messengers[hidden] {
+  display: none;
+}
+@keyframes msgUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sticky-messengers-title {
+  display: block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+.sticky-messengers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.sticky-msg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 14px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+.sticky-msg:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+.sticky-msg svg {
+  width: 18px;
+  height: 18px;
+  stroke: #8fc0e6;
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .sticky-cta-bar {
     padding: 10px 14px;
     gap: 10px;
   }
@@ -815,7 +909,23 @@
     font-size: 12px;
   }
   .sticky-cta-btn {
-    padding: 11px 22px;
+    padding: 11px 20px;
     font-size: 14px;
+  }
+  .sticky-messengers {
+    padding: 16px 14px 4px;
+  }
+  .sticky-messengers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .sticky-msg {
+    padding: 13px 10px;
+    font-size: 13px;
+    gap: 7px;
+  }
+  .sticky-msg svg {
+    width: 16px;
+    height: 16px;
   }
 }
