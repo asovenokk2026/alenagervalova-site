@@ -3,46 +3,42 @@
 #  Панель открывается по адресу: https://alenagervalova.ru/admin/
 # ============================================================
 
-# ---------- АВТОРИЗАЦИЯ ----------
-# Вариант 1 (рекомендуемый, работает и на Netlify, и на Vercel, вход по e-mail):
-#   DecapBridge — бесплатный сервис авторизации для Decap CMS.
-#   1. Зарегистрируйтесь на https://decapbridge.com, нажмите «Create site»,
-#      укажите GitHub-репозиторий и ветку main, вставьте GitHub-токен по инструкции.
-#   2. Скопируйте выданные identity_url и gateway_url сюда.
-#   3. В DecapBridge → «Manage collaborators» пригласите e-mail Алены — придёт письмо со ссылкой.
+# ---------- АВТОРИЗАЦИЯ (DecapBridge) ----------
+# Вход по e-mail/паролю или через Google. Управление пользователями:
+# https://decapbridge.com → ваш сайт → Manage collaborators.
 backend:
   name: git-gateway
-  repo: GITHUB_USER/alenagervalova-site        # ← ЗАМЕНИТЬ: владелец/название репозитория на GitHub
+  repo: asovenokk2026/alenagervalova-site
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/ВАШ_SITE_ID   # ← ЗАМЕНИТЬ на значение из DecapBridge
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/ff05f9c6-43e5-485f-8452-242d7b04ec3b/pkce
+  auth_token_endpoint: /sites/ff05f9c6-43e5-485f-8452-242d7b04ec3b/token
   gateway_url: https://gateway.decapbridge.com
   commit_messages:
-    create: "Новая статья: {{slug}} — {{author-name}}"
-    update: "Обновление статьи: {{slug}} — {{author-name}}"
-    delete: "Удаление статьи: {{slug}} — {{author-name}}"
-    uploadMedia: "Загрузка файла {{path}} — {{author-name}}"
-    deleteMedia: "Удаление файла {{path}} — {{author-name}}"
-    openAuthoring: "{{message}}"
+    create: "Новая статья: {{slug}} — {{author-name}} <{{author-login}}>"
+    update: "Обновление статьи: {{slug}} — {{author-name}} <{{author-login}}>"
+    delete: "Удаление статьи: {{slug}} — {{author-name}} <{{author-login}}>"
+    uploadMedia: "Загрузка файла {{path}} — {{author-name}} <{{author-login}}>"
+    deleteMedia: "Удаление файла {{path}} — {{author-name}} <{{author-login}}>"
+    openAuthoring: "{{message}} — {{author-name}} <{{author-login}}>"
 
-# Вариант 2 (только Netlify, вход через аккаунт GitHub с правами на репозиторий):
-#   Закомментируйте блок выше и раскомментируйте этот. В Netlify: Site configuration →
-#   Access & security → OAuth → Install provider → GitHub (Client ID/Secret из GitHub OAuth App,
-#   Authorization callback URL: https://api.netlify.com/auth/done).
-# backend:
-#   name: github
-#   repo: GITHUB_USER/alenagervalova-site
-#   branch: main
-#   base_url: https://api.netlify.com
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
 
 # Локальная разработка: `npx decap-server` + `npm run dev`, затем http://localhost:8080/admin/
-local_backend: true
+local_backend: false
 
 # Черновики: статья сначала сохраняется как черновик (Drafts), затем «In review» → «Ready»,
 # и только по кнопке «Publish» попадает на сайт.
 publish_mode: editorial_workflow
 
-site_url: https://alenagervalova.ru
-display_url: https://alenagervalova.ru
+# После переезда домена заменить оба адреса на https://alenagervalova.ru
+site_url: https://gleeful-beignet-a5b21f.netlify.app
+display_url: https://gleeful-beignet-a5b21f.netlify.app
 logo_url: /favicon-192.png
 locale: ru
 
