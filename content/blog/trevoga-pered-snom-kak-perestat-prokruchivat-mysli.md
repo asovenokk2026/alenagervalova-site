@@ -7,6 +7,8 @@ slug: trevoga-pered-snom-kak-perestat-prokruchivat-mysli
 date: 2026-10-10
 author: Алена Гервалова
 category: trevoga
+image: /images/blog/article-0.jpg
+imageAlt: Женщина вечером сидит на кровати и записывает мысли в блокнот
 seoTitle: "Тревога перед сном: что делать с навязчивыми мыслями"
 seoDescription: "Почему вечером усиливается тревога и как обходиться с мыслями
   перед сном: практические шаги, дневник переживаний и помощь психолога."
