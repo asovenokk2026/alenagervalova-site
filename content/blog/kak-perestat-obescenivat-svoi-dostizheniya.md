@@ -7,6 +7,8 @@ slug: kak-perestat-obescenivat-svoi-dostizheniya
 date: 2026-10-10
 author: Алена Гервалова
 category: samoocenka
+image: /images/blog/article-1.jpg
+imageAlt: Женщина записывает свои достижения в блокнот у окна
 seoTitle: Как перестать обесценивать свои достижения
 seoDescription: "«Мне просто повезло» и «этого мало»: как замечать свой вклад,
   отвечать внутреннему критику и укреплять самооценку без сравнения с другими."
