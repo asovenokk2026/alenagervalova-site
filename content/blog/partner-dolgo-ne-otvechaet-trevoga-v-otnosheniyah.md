@@ -7,6 +7,7 @@ slug: partner-dolgo-ne-otvechaet-trevoga-v-otnosheniyah
 date: 2026-10-10
 author: Алена Гервалова
 category: otnosheniya
+image: /images/blog/3.png
 seoTitle: "Партнёр долго не отвечает: как справиться с тревогой"
 seoDescription: Как отличить факты от тревожных догадок, сократить проверки
   телефона и договориться с партнёром о связи, сохраняя свои потребности и
