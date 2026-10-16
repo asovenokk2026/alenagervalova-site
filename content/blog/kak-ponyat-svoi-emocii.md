@@ -4,7 +4,7 @@ description: Как отличать эмоции от мыслей и теле�
   наблюдение за собой, примеры и способы выбирать действия без подавления
   чувств.
 slug: kak-ponyat-svoi-emocii
-date: 2026-10-14
+date: 2026-10-16
 author: Алена Гервалова
 category: samopoznanie
 image: /images/blog/seo-next-20261014-05.jpg
