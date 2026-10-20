@@ -3,7 +3,7 @@ title: Как принимать комплименты без оправдан�
 description: Почему похвалу хочется отвергнуть и как отвечать на комплименты
   спокойно. Практика принятия добрых слов с сохранением своих границ.
 slug: kak-prinimat-komplimenty
-date: 2026-10-14
+date: 2026-10-20
 author: Алена Гервалова
 category: samoocenka
 image: /images/blog/seo-next-20261014-02.jpg
